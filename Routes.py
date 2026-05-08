@@ -36,8 +36,29 @@ def contact():
 # ВАЖНО URL Должен быть уникальным. Не может быть двух @app.route("/")  @app.route("/")
 
 # Route с параметром
+
 @app.route("/user/<name>")
 def user(name):
     return f"Hello, {name}"
-
 # <name> - это переменная внутри URL.
+
+@app.route("/city/<city>")
+def city(city):
+    return f"Город: {city}"
+# <city> - это переменная внутри URL.
+"""
+URL:
+
+/city/Batumi
+
+Ответ:
+
+Город: Batumi
+"""
+
+# Типы параметров - Flask умеет проверять типы
+
+# int
+@app.route("/post/<int:id>")
+def posr(id):
+    return f"Пост {id}"
