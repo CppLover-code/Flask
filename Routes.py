@@ -62,3 +62,25 @@ URL:
 @app.route("/post/<int:id>")
 def posr(id):
     return f"Пост {id}"
+
+# Также работает с такими типами, как:
+# int, float, string, path
+
+# float
+@app.route("/price/<float:value>")
+def price(value):
+    return f"Цена: {value}"
+
+# Route methods
+# По умолчанию route работает только с GET
+
+# GET route
+@app.route("/")
+def home():
+    return "Главная"
+
+# POST route
+@app.route("/send", methods=["POST"])
+def send():
+    return "Отправлено"
+
