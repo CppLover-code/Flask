@@ -37,6 +37,31 @@ CХЕМА:
         ↓ response
         Browser
 """
+from flask import Flask
 from flask import request
 
+app = Flask(__name__)
 
+@app.route("/search")
+def search():
+
+    q = request.args.get("q")
+
+    print(q)
+
+    return f"Поиск: {q}"
+
+app.run(debug=True)
+
+"""
+Request.args
+Получение query параметров из URL.
+
+Пример URL
+/search?q=python
+
+Что такое ?q=python
+Это query parameter.
+
+
+"""
